@@ -1,21 +1,22 @@
 p#notice = notice
 
-p
-  strong Given url:
-  = @link.given_url
-p
-  strong Slug:
-  = @link.slug
-p
-  strong Clicks:
-  = @link.clicks
-p
-  strong Snapshot:
-  = @link.snapshot
-p
-  strong Title:
-  = @link.title
+- if @link.snapshot
+  .screenshot-outer-individual
+    = link_to image_tag(@link.snapshot.url, class: "screenshot"), @link
 
-= link_to 'Edit', edit_link_path(@link)
-'|
-= link_to 'Back', links_path
+p.title = @link.title
+p.short_url = link_to @link.display_slug, @link.display_slug, target: "_blank"
+
+ul.click_time
+  li
+    span.badge
+      span.clicks= @link.clicks
+    | clicks
+  li
+    span.time
+      = time_ago_in_words(@link.created_at)
+      | ago
+
+p.long_url = link_to @link.given_url, @link.given_url
+
+= link_to 'Back', root_path
