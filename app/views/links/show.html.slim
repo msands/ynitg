@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Given url:
+  = @link.given_url
+p
+  strong Slug:
+  = @link.slug
+p
+  strong Clicks:
+  = @link.clicks
+p
+  strong Snapshot:
+  = @link.snapshot
+p
+  strong Title:
+  = @link.title
+
+= link_to 'Edit', edit_link_path(@link)
+'|
+= link_to 'Back', links_path
