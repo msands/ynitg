@@ -1,4 +1,5 @@
 class Link < ActiveRecord::Base
+  after_create :generate_slug, :screenshot_scrape
 
   # Display entire shortened URL
   def display_slug
@@ -9,6 +10,12 @@ class Link < ActiveRecord::Base
   def generate_slug
     self.slug = self.id.to_s(36)
     self.save
+  end
+
+  # Get screenshot and title page
+  def screenshot_scrape
+    Screenshot.perform_async(self.id)
+    Scrape.perform_async(self.id)
   end
 
 end
