@@ -20,6 +20,13 @@ gem 'slim-rails', '~> 3.0.1'
 # Set environmental variables
 gem 'figaro', '~> 1.1.1'
 
+# Enable screenshot to URL slugs
+gem 'imgkit', '~> 1.6.1'
+gem 'carrierwave', '~> 0.11.0'
+gem 'fog', '~> 1.38.0'
+gem 'mechanize', '~> 2.7.4'
+gem 'sidekiq', '~> 4.1.1'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
