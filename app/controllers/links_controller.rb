@@ -62,17 +62,6 @@ class LinksController < ApplicationController
   end
 
   private
-  # Display entire shortened URL
-  def display_slug
-    ENV['BASE_URL'] + self.slug
-  end
-
-  # Create link slug after base URL
-  def generate_slug
-    self.slug = self.id.to_s(36)
-    self.save
-  end
-
   # Use callbacks to share common setup or constraints between actions.
   def set_link
     @link = Link.find(params[:id])
