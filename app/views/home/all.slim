@@ -1,0 +1,23 @@
+.table-responsive
+  table.table
+    thread
+      tr
+        th Given url
+        th Short Link
+        th Title
+        th Clicks
+        th
+        th
+    tbody
+      - @links.each do |link|
+        tr
+          td= link.given_url
+          td= link_to link.display_slug, link.slug, target: "_blank"
+          td= link.title
+          td= link.clicks
+          td= link_to 'Show', link
+
+= will_paginate @links
+
+p.bottom_nav
+  = link_to 'See just the trending links', root_path

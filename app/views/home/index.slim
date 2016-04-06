@@ -1,0 +1,21 @@
+.title
+  h1 Trending Links
+
+.row
+  - @top_links.each do |link|
+    .col-lg-3.col-md-4.col-sm-6.col-xs-12.link
+      - if link.snapshot
+        .screenshot-outer
+          = link_to image_tag(link.snapshot.url, class: "screenshot"), link
+      p.title= truncate(link.title, length: 60)
+      p.short_url= link_to link.display_slug, link.slug, target: "_blank"
+      ul.click_time
+        li
+          span.badge
+            span.clicks= @link.clicks
+          | clicks
+        li
+          span.time
+            = time_ago_in_words(@link.created_at)
+            | ago
+      p.long_url= link_to truncate(link.given_url, length: 60), link.given_url
