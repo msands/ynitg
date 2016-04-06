@@ -28,6 +28,9 @@ gem 'fog', '~> 1.38.0'
 gem 'mechanize', '~> 2.7.4'
 gem 'sidekiq', '~> 4.1.1'
 
+# jQuery validation
+gem 'jquery-validation-rails', '~> 1.13.1'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
