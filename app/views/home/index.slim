@@ -16,6 +16,6 @@
           | clicks
         li
           span.time
-            = time_ago_in_words(@link.created_at)
+            = time_ago_in_words(link.created_at)
             | ago
       p.long_url= link_to truncate(link.given_url, length: 60), link.given_url
